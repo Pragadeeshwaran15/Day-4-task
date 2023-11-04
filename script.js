@@ -31,6 +31,30 @@ var oddnum=[];
     console.log(oddnum)
 })(b)
 
+//b.)Convert all the strings to title caps in a string array
+//Answer:
+//Anonymous functions;
+const titleCase=function(str) {
+    str = str.toLowerCase().split(' ');
+    for (let i = 0; i < str.length; i++) {
+        str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+    }
+    return str.join(' ');
+}
+console.log(titleCase("hello everyone"));
+
+//IIFE function;
+(function(num){
+    var res=num.toString();
+    var a=res.toLowerCase().split(" ");
+   for(i=0;i<a.length;i++){
+     a[i]=a[i].charAt(0).toUpperCase()+a[i].slice(1);
+}
+console.log(a.join(" "));
+
+})(["hello everyone"])
+
+
 //c.)Sum of all numbers in an array
 //answer;
 
@@ -64,7 +88,7 @@ var arr=[1,2,3,4,5,6,7,8,9,10];
 var prime=function(num){
 for(i=2;num>i;i++){
     if(num%i==0){
-        return false;
+        return false
     }
 }
 return num>1;
@@ -80,7 +104,7 @@ for(i=2;num>i;i++){
         return false;
     }
     else{
-        return num>1;
+        return num>1
     }
 }
 console.log(arr.filter(prime))
@@ -101,7 +125,7 @@ var palindromes=function(array){
             ans.push(array[i])
         }
     }
-    return ans;
+    return ans
 }
 console.log(palindromes(words))
 
@@ -119,6 +143,47 @@ var ans=[];
     }
     console.log(ans);
 })(words)
+
+//f.)Return median of two sorted arrays of the same size.
+//Answer:
+//Anonymous functions;
+var arr1=[1,2,3,4,5];
+var arr2=[7,8,6,9];
+var median=function(h,m){
+var x1=arr1.concat(arr2)
+x1.sort((a,b)=>a-b)
+var n=x1.length;
+
+if(n%2===0){
+  return ((x1[n/2]+x1[n/2-1])/2)
+  
+}
+else{
+  return (x1[Math.floor(n/2)])
+}
+}
+
+console.log(median(arr1,arr2))
+
+//IIFE function;
+var arr1=[1,2,3,4,5];
+var arr2=[7,8,6,9];
+(function(h,m){
+var x1=arr1.concat(arr2)
+x1.sort((a,b)=>a-b)
+var n=x1.length;
+
+if(n%2===0){
+  console.log ((x1[n/2]+x1[n/2-1])/2);
+  
+}
+else{
+  console.log (x1[Math.floor(n/2)]); 
+}
+})(arr1,arr2)
+
+
+
 
 
 
@@ -163,25 +228,29 @@ var uniqueArr = [];
 //Anonymous function;
 var number=[1,2,3,4,5];
 var k=3;
-var rotateArray1 = function(ar, k) {
+var rotateArray1 = function(arr, k) {
 
-    for (let i = 0; i < k; i++) {
-        ar.unshift(ar.pop());
-    }
-  
-    return ar;
+  for(i=0;i<k;i++){
+    arr.push(arr[i])
+  }
+  for(i=0;i<k;i++){
+    arr.shift()
+  }
+  return arr
   }
   console.log(rotateArray1(number,3))
 
 //IIFE function;
 var number=[1,2,3,4,5];
-(function(ar, k) {
+(function(arr1, k) {
 
-    for (let i = 0; i < k; i++) {
-        ar.unshift(ar.pop());
-    }
-  
-    console.log(ar);
+  for(i=0;i<k;i++){
+    arr1.push(arr1[i])
+  }
+  for(i=0;i<k;i++){
+    arr1.shift()
+  }
+  console.log(arr1)
   })(number,4)
   
 
@@ -206,6 +275,16 @@ console.log(odd(n))
 // b.)Convert all the strings to title caps in a string array
 //answer;
 //arrow functions.
+var upper=(val)=>{
+    var res=val.toString();
+    var ans=res.toLowerCase().split(" ");
+   for(i=0;i<ans.length;i++){
+     ans[i]=ans[i].charAt(0).toUpperCase()+ans[i].slice(1);
+}
+return ans.join(" ");
+}
+console.log(upper(["hI eveRyonE"]))
+
 
 
 // c.)Sum of all numbers in an array
